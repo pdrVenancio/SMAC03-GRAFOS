@@ -4,8 +4,8 @@
 # Saída: matriz de adjacências (tipo numpy.ndarray) com a aresta inserida.
 
 def  insereAresta(matriz, vi, vj):
-    matriz[vi][vj] = 1
-    matriz[vj][vi] = 1
+    matriz[vi][vj] += 1  
+    matriz[vj][vi] += 1 
     print(matriz)
 
 matriz = [[0, 1, 0, 0], [1, 0, 1, 1], [0, 1, 0, 1], [0, 1, 1, 0]]

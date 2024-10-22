@@ -1,15 +1,20 @@
-def classificaArestaDFS(grafo):
+def tempoVertice(grafo, v):
     cor = ['branco' for _ in range(len(grafo))]
     tempoD = [0 for _ in range(len(grafo))]
     tempoT = [0 for _ in range(len(grafo))]
     tipo_aresta = {} 
     tempo = [0] 
     
+    lista_tempo = {}
+    
+    visitaDFS(grafo, v, cor, tipo_aresta, tempoD, tempoT, tempo)
+    
     for vertice in grafo:
         if cor[vertice] == 'branco':
             visitaDFS(grafo, vertice, cor, tipo_aresta, tempoD, tempoT, tempo)
+        lista_tempo[vertice] = str(tempoD[vertice]) +  '/' + str(tempoT[vertice])
     
-    print(f'Cor: {cor}\nTipo de aresta: {tipo_aresta}\nTempoD: {tempoD}\nTempoT: {tempoT}')
+    return lista_tempo
 
 
 def visitaDFS(grafo, vertice, cor, tipo_aresta, tempoD, tempoT, tempo):
@@ -19,15 +24,7 @@ def visitaDFS(grafo, vertice, cor, tipo_aresta, tempoD, tempoT, tempo):
 
     for adjacente in grafo[vertice]:
         if cor[adjacente] == 'branco':
-            tipo_aresta[(vertice, adjacente)] = 'tree'
             visitaDFS(grafo, adjacente, cor, tipo_aresta, tempoD, tempoT, tempo)
-        elif cor[adjacente] == 'cinza':
-            tipo_aresta[(vertice, adjacente)] = 'back'
-        else:
-            if tempoD[vertice] < tempoD[adjacente]:
-                tipo_aresta[(vertice, adjacente)] = 'forward'
-            else:
-                tipo_aresta[(vertice, adjacente)] = 'cross'
     
     cor[vertice] = 'preto'
     tempo[0] += 1
@@ -42,5 +39,6 @@ grafo = {
     4: [3],
     5: [5]
 }
-classificaArestaDFS(grafo)
+
+print(tempoVertice(grafo, 5))
 

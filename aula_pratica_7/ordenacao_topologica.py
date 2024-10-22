@@ -2,17 +2,18 @@ def classificaArestaDFS(grafo):
     cor = ['branco' for _ in range(len(grafo))]
     tempoD = [0 for _ in range(len(grafo))]
     tempoT = [0 for _ in range(len(grafo))]
+    lista_elementos = []
     tipo_aresta = {} 
     tempo = [0] 
     
     for vertice in grafo:
         if cor[vertice] == 'branco':
-            visitaDFS(grafo, vertice, cor, tipo_aresta, tempoD, tempoT, tempo)
+            visitaDFS(grafo, vertice, cor, tipo_aresta, tempoD, tempoT, tempo, lista_elementos)
     
-    print(f'Cor: {cor}\nTipo de aresta: {tipo_aresta}\nTempoD: {tempoD}\nTempoT: {tempoT}')
+    print(f'Cor: {cor}\nTipo de aresta: {tipo_aresta}\nTempoD: {tempoD}\nTempoT: {tempoT}\n Ordenação topologica: {lista_elementos}')
 
 
-def visitaDFS(grafo, vertice, cor, tipo_aresta, tempoD, tempoT, tempo):
+def visitaDFS(grafo, vertice, cor, tipo_aresta, tempoD, tempoT, tempo, lista_elementos):
     cor[vertice] = 'cinza'
     tempo[0] += 1
     tempoD[vertice] = tempo[0]
@@ -20,7 +21,7 @@ def visitaDFS(grafo, vertice, cor, tipo_aresta, tempoD, tempoT, tempo):
     for adjacente in grafo[vertice]:
         if cor[adjacente] == 'branco':
             tipo_aresta[(vertice, adjacente)] = 'tree'
-            visitaDFS(grafo, adjacente, cor, tipo_aresta, tempoD, tempoT, tempo)
+            visitaDFS(grafo, adjacente, cor, tipo_aresta, tempoD, tempoT, tempo, lista_elementos)
         elif cor[adjacente] == 'cinza':
             tipo_aresta[(vertice, adjacente)] = 'back'
         else:
@@ -32,6 +33,7 @@ def visitaDFS(grafo, vertice, cor, tipo_aresta, tempoD, tempoT, tempo):
     cor[vertice] = 'preto'
     tempo[0] += 1
     tempoT[vertice] = tempo[0]
+    lista_elementos.insert(0, vertice)
 
 # exemplo slide
 grafo = {

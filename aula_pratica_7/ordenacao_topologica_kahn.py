@@ -11,7 +11,7 @@ def ordenacaoTopologicaKahn(grafo):
     sem_grau_entrada = [vertice for vertice in grafo if grau_entrada[vertice] == 0]
 
     while sem_grau_entrada:
-        vertice_atual = sem_grau_entrada.pop(0)  
+        vertice_atual = sem_grau_entrada.pop()  
         lista_elementos.append(vertice_atual)
 
         for adj in grafo[vertice_atual]:
@@ -25,10 +25,5 @@ def ordenacaoTopologicaKahn(grafo):
     return lista_elementos
 
 
-grafo = {
-    0: [1, 2],
-    1: [3],
-    2: [3],
-    3: []
-}
+grafo = {0: [1], 1: [], 2: [0], 3: [1, 2], 4: [1, 2]}
 print(ordenacaoTopologicaKahn(grafo))

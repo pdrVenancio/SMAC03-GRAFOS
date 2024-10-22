@@ -1,0 +1,70 @@
+def verificaGrauentrada(grafo, v):
+    # verifico se v esta em alguma lista 
+    return True
+
+    return False
+
+def ordenacaoTopologicaKahn(grafos):
+    lista_elementos = []
+    sem_grau_entrada = [vertice for vertice in range(len(grafos))]
+    # E = arcos de G
+    lista_arcos = []
+ 
+
+    for ver in grafo:
+        for adj in grafo[ver]:
+            lista_arcos.append([ver,adj])
+
+    while sem_grau_entrada != []:
+        # print(sem_grau_entrada)
+        sem_grau_entrada.remove(sem_grau_entrada[0])
+        lista_elementos.append(sem_grau_entrada[0])
+        for arco in lista_arcos:
+            lista_arcos.remove(arco) 
+            if arco[1]   :
+                sem_grau_entrada.append(arco[1])
+      
+    print(f'{lista_arcos}\n\n Elementos{lista_elementos}')
+    if lista_arcos != []:
+        return 'nao DAG!'
+    else:
+        return lista_elementos
+
+
+grafo = {
+    0: [1, 3],  
+    1: [4],  
+    2: [4, 5], 
+    3: [1],    
+    4: [3],
+    5: [5]
+}
+print(ordenacaoTopologicaKahn(grafo))
+
+# COLORAÇÃO DE GRAFOS 
+
+# def coloracaoSequencial(grafo,vertice):
+#     id_cor = 0
+#     cor = [0 for _ in range(len(grafo))]
+
+#     for adjacente in grafo[vertice]:
+#         print(adjacente)
+#         if id_cor not in adjacente:
+#             cor[vertice] = id_cor
+#         else:
+#             id_cor += 1
+#             cor[vertice] = id_cor
+    
+#     return cor
+
+
+
+# grafo = {
+#     0: [1, 3],  
+#     1: [4],  
+#     2: [4, 5], 
+#     3: [1],    
+#     4: [3],
+#     5: [5]
+# }
+# print(coloracaoSequencial(grafo, 5))

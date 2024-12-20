@@ -3,7 +3,20 @@
 # Saída: lista de adjacências (tipo Dictionary) com o vértice inserido.
 
 def insereVertice(listaAdj, vi):
-    return
+    # Verifica se o vértice já existe
+    if vi not in listaAdj:
+        listaAdj[vi] = []  # Adiciona o vértice sem vizinhos
+    return listaAdj
 
-insereVertice({0: [1, 1, 2, 2, 3], 1: [0, 0, 3], 2: [0, 0, 3], 3: [0, 1, 2]})
-print('\n{0: [1, 1, 2, 2, 3], 1: [0, 0, 3], 2: [0, 0, 3], 3: [0, 1, 2], 4: []}')
+# Lista de adjacências inicial
+listaAdj = {
+    0: [1, 2],
+    1: [0],
+    2: [0]
+}
+
+# Insere um novo vértice 3
+listaAdj = insereVertice(listaAdj, 3)
+
+print("Lista de adjacências atualizada:")
+print(listaAdj)

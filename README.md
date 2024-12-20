@@ -53,17 +53,20 @@ Ao longo da disciplina, foram abordados os seguintes tópicos:
 
 ## Estrutura do Repositório
 
-A estrutura do repositório segue o padrão de organização dos exercícios realizados durante as aulas. Abaixo está uma breve descrição dos diretórios e arquivos:
+A estrutura do repositório segue o padrão de organização dos exercícios realizados durante as aulas.
 
-Cada diretório contém um exercício específico com o código fonte do algoritmo implementado, além de um arquivo `README.md` explicando o problema e a solução proposta.
-
+Cada diretório contém um exercício específico com o código fonte do algoritmo implementado.
 ## Exercícios
 
-1. **Exercício 1**: Implementação de Grafos - Representação usando listas de adjacência e busca em profundidade (DFS).
-2. **Exercício 2**: Algoritmo de Dijkstra para encontrar o caminho mais curto em grafos ponderados.
-3. **Exercício 3**: Implementação do Algoritmo de Kruskal para encontrar a árvore geradora mínima em grafos.
-4. **Exercício 4**: Algoritmo de Bellman-Ford para grafos com pesos negativos.
-5. **Exercício 5**: Busca em largura (BFS) e detecção de componentes conexas.
+1. **Aula pratica 1**: Base para manipular grafos computacionalmente.
+2. **Aula Pratica 2**: Manipulando grafos usando matriz de adjacência.
+3. **Aula Pratica 3**: Manipulando listas de adjacência.
+4. **Aula pratica 4**: Caminho euleriano.
+5. **Aula pratica 5**: Busca em largura (BFS).
+6. **Aula pratica 6**: Busca em profundidade (DFS).
+7. **Aula pratica 7**: Coloração e ordenação topologica por DFS e algoritmo de Khan.
+8. **Aula pratica 8**: Caminho minimo com algoritmo de Dijkstra.
+9. **Aula pratica 9**: Árvore geradora mínima pelos algoritmos de Kruskal e Prim.
 
 Cada exercício está contido em um diretório separado com uma descrição dos passos e implementação.
 
@@ -72,4 +75,4 @@ Cada exercício está contido em um diretório separado com uma descrição dos 
 1. Clone o repositório para o seu computador:
 
    ```bash
-   git clone https://github.com/seu-usuario/repositorio-grafos.git
+   git clone https://github.com/pdrVenancio/SMAC03-GRAFOS.git

@@ -3,8 +3,32 @@
 # Saída: lista de adjacências (tipo Dictionary) com a aresta inserida.
 
 def insereAresta(listaAdj, vi, vj):
-    return
+    # Adiciona o vértice vj na lista de vizinhos de vi
+    if vi in listaAdj:
+        if vj not in listaAdj[vi]:  # Evita duplicação
+            listaAdj[vi].append(vj)
+    else:
+        listaAdj[vi] = [vj]
 
-insereAresta({0: [1], 1: [0, 2, 3], 2: [1, 3], 3: [1, 2]}, 0, 2)
+    # Adiciona o vértice vi na lista de vizinhos de vj (para grafos não direcionados)
+    if vj in listaAdj:
+        if vi not in listaAdj[vj]:  # Evita duplicação
+            listaAdj[vj].append(vi)
+    else:
+        listaAdj[vj] = [vi]
 
-print('\n{0: [1, 2], 1: [0, 2, 3], 2: [0, 1, 3], 3: [1, 2]}')
+    return listaAdj
+
+# Lista de adjacências inicial
+listaAdj = {
+    0: [1, 2],
+    1: [0],
+    2: [0],
+    3: []
+}
+
+# Insere uma aresta entre os vértices 1 e 3
+listaAdj = insereAresta(listaAdj, 1, 3)
+
+print("Lista de adjacências atualizada:")
+print(listaAdj)
